@@ -5,6 +5,7 @@ var pElement = document.querySelector('.text');
 var buttons = document.querySelectorAll('button');
 var imgLeft = document.querySelector('.left');
     var imgRight = document.querySelector('.right');
+var playAgain = document.querySelector('.play-again')
 
 var userChoice = '';
 var computerChoice = '';
@@ -12,8 +13,8 @@ var winCount = 0;
 
 for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', function() {
-        imgLeft.classList.remove('show-animation')
-        imgRight.classList.remove('show-animation')
+        
+        
         userChoice = choices[i];
         userText.textContent = "Your choice is: " + userChoice;
         computerChoose();
@@ -22,13 +23,23 @@ for (let i = 0; i < buttons.length; i++) {
         imgRight.src = `./images/${computerChoice}.jpg`
         imgLeft.classList.add('show-animation')
         imgRight.classList.add('show-animation')
-
+        playAgain.textContent = 'Play Again'
+        playAgain.classList.add('show-play-again')
     })
 }
-function showImages () {
-    
-   
-}
+playAgain.addEventListener('click', function () {
+    imgLeft.classList.remove('show-animation');
+    imgRight.classList.remove('show-animation');
+    userText.textContent = '';
+    computerText.textContent = '';
+    pElement.textContent = '';
+    playAgain.textContent = '';
+    playAgain.classList.remove('show-play-again');
+    imgLeft.src = './images/random1.gif';
+    imgRight.src = './images/random2.gif'
+
+
+})
 
 function computerChoose() {
     var randomIndex = Math.floor(Math.random() * 3 );
