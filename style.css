@@ -1,0 +1,30 @@
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+h1 {
+    margin-top: 50px;
+
+}
+.show-images {
+    display: flex;
+    /* flex-direction: row; */
+    gap: 100px;
+    justify-content: center;
+    margin-top: 60px;
+}
+@keyframes show {
+    from {scale: 1;}
+    to {scale: 1.4;}
+}
+.show-animation {
+    animation-name: show;
+    animation-duration: 2s;
+
+}
+.text {
+    font-size: 50px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
