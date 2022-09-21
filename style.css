@@ -37,4 +37,9 @@ h1 {
     color: white;
     margin: 0 auto;
 }
+.button-clicked {
+    background-color: #d4d4d4;
+    border-color: #d4d4d4;
+    color: white;
+}
 

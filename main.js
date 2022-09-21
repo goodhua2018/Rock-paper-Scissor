@@ -11,22 +11,45 @@ var userChoice = '';
 var computerChoice = '';
 var winCount = 0;
 
+
+// buttons.forEach((button, index) => {
+//     this.addEventListener('click', function() {
+//         userChoice = choices[index];
+//         userText.textContent = "Your choice is: " + userChoice;
+//         computerChoose();
+//         compareChoice();  
+//         this.classList.add('button-clicked')
+//         imgLeft.src = `./images/${userChoice}.jpg`
+//         imgRight.src = `./images/${computerChoice}.jpg`
+//         imgLeft.classList.add('show-animation')
+//         imgRight.classList.add('show-animation')
+//         playAgain.textContent = 'Play Again'
+//         playAgain.classList.add('show-play-again')
+//         this.click.disabled = true;
+//     })
+
+// })
+
 for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', function() {
-        
-        
         userChoice = choices[i];
         userText.textContent = "Your choice is: " + userChoice;
         computerChoose();
         compareChoice();  
+        this.classList.add('button-clicked')
         imgLeft.src = `./images/${userChoice}.jpg`
         imgRight.src = `./images/${computerChoice}.jpg`
         imgLeft.classList.add('show-animation')
         imgRight.classList.add('show-animation')
         playAgain.textContent = 'Play Again'
         playAgain.classList.add('show-play-again')
+        buttons[i].disabled = true;
+        buttons.forEach((button) => {
+            button.disabled = true;
+        })
     })
 }
+
 playAgain.addEventListener('click', function () {
     imgLeft.classList.remove('show-animation');
     imgRight.classList.remove('show-animation');
@@ -36,7 +59,11 @@ playAgain.addEventListener('click', function () {
     playAgain.textContent = '';
     playAgain.classList.remove('show-play-again');
     imgLeft.src = './images/random1.gif';
-    imgRight.src = './images/random2.gif'
+    imgRight.src = './images/random2.gif';
+    buttons.forEach((button) => {
+        button.classList.remove('button-clicked');
+        button.disabled = false;
+    })
 
 
 })
